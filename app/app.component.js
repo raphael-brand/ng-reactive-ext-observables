@@ -32,9 +32,11 @@ System.register(['angular2/core', 'rxjs/Rx'], function(exports_1) {
                         var promise = $.getJSON(url);
                         return Rx_1.Observable.fromPromise(promise);
                     });
-                    keyups.subscribe(function (data) {
+                    var subscription = keyups.subscribe(function (data) {
                         data.artists.items && data.artists.items.map(function (artist) {
                             console.log(artist.name);
+                            // search only once
+                            //subscription.unsubscribe();
                         });
                     });
                 }
