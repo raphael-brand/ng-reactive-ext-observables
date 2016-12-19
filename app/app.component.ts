@@ -1,7 +1,7 @@
-/// <reference path="../typings/tsd.d.ts" />
-
 import {Component} from 'angular2/core';
-import {Observable} from 'rxjs/Rx';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/filter';
 
 @Component({
     selector: 'my-app',
@@ -11,6 +11,6 @@ import {Observable} from 'rxjs/Rx';
 })
 export class AppComponent {
     constructor(){
-      
+      console.log(new Observable())
     }
 }
