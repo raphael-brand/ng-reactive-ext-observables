@@ -25,7 +25,9 @@ export class AppComponent {
       keyups.subscribe(data => {
         data.artists.items && data.artists.items.map(artist => {
           console.log(artist.name);
-        })
+          //search only once
+          //keyups.unsubscribe()
+        });
       });
 
     }
