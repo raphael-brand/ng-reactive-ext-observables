@@ -22,12 +22,12 @@ export class AppComponent {
           return Observable.fromPromise(promise);
         });
 
-      var subscription = keyups.subscribe(data => {
+      keyups.subscribe(data => {
         data.artists.items && data.artists.items.map(artist => {
           console.log(artist.name);
-          // search only once
-          //subscription.unsubscribe();
-        })
+          //search only once
+          //keyups.unsubscribe()
+        });
       });
 
     }
