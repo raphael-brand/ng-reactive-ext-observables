@@ -3,6 +3,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/filter';
 import {ControlGroup, FormBuilder} from 'angular2/common';
+import {FormsService} from './forms.service'
 
 @Component({
     selector: 'my-app',
@@ -20,7 +21,11 @@ export class AppComponent {
       });
 
       var search = this.form.find('search');
-      search.valueChanges.subscribe(x => console.log(x));
+      let formsservice = new FormsService;
+      search.valueChanges.subscribe(x => {
+        let result = formsservice.replace.spaceWithHyphen(x);
+        console.log(formsservice.toLower(result))
+      });
       //console.log(new Observable())
     }
 }
