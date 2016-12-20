@@ -8,7 +8,7 @@ import {ControlGroup, FormBuilder} from 'angular2/common';
     selector: 'my-app',
     template: `
         <form [ngFormModel]="form">
-          <input type="text" ngControl="search">
+          <input type="text" ngControl="search" class="form-control">
         </form>
     `
 })
@@ -18,6 +18,9 @@ export class AppComponent {
       this.form = fb.group({
         search: []
       });
-      console.log(new Observable())
+
+      var search = this.form.find('search');
+      search.valueChanges.subscribe(x => console.log(x));
+      //console.log(new Observable())
     }
 }
