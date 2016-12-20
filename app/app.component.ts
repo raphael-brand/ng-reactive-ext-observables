@@ -2,6 +2,7 @@
 
 import {Component} from 'angular2/core';
 import {Observable} from 'rxjs/Rx';
+import {FormsService} from './forms.service'
 
 @Component({
     selector: 'my-app',
@@ -24,7 +25,9 @@ export class AppComponent {
 
       keyups.subscribe(data => {
         data.artists.items && data.artists.items.map(artist => {
-          console.log(artist.name);
+          let formsservice = new FormsService;
+          let result = formsservice.replace.spaceWithHyphen(artist.name);
+          console.log(formsservice.toLower(result))
           //search only once
           //keyups.unsubscribe()
         });
