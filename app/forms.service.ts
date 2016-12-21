@@ -1,15 +1,15 @@
 export class FormsService {
-   
-   constructor() {};
-   get replace() : {spaceWithHyphen : Function } {
+
+  constructor() { };
+  get replace(): { spaceWithHyphen: Function } {
     return {
-      spaceWithHyphen: (text : string) => {
-        return text.replace(/\s/gi,'-');
+      spaceWithHyphen: (text: string) => {
+        return text.replace(/\s/gi, '-');
       }
-    }      
+    }
   };
-  
-  toLower (text : string) {
+
+  toLower(text: string) {
     return text.toLowerCase();
   }
 }

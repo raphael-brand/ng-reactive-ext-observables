@@ -1,31 +1,14 @@
-import {Component} from 'angular2/core';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/filter';
-import {ControlGroup, FormBuilder} from 'angular2/common';
-import {FormsService} from './forms.service'
+import { Component } from 'angular2/core';
+import { SpotifySearch } from './spotify-search.component'
+import { ImportingOperators } from './importing-operators.component'
 
 @Component({
-    selector: 'my-app',
-    template: `
-        <form [ngFormModel]="form">
-          <input type="text" ngControl="search" class="form-control">
-        </form>
-    `
+  selector: 'my-app',
+  template: `
+      <spotify-search></spotify-search>
+      <importing-operators></importing-operators>
+    `,
+  directives: [SpotifySearch, ImportingOperators]
 })
 export class AppComponent {
-    form: ControlGroup;
-    constructor(fb: FormBuilder){
-      this.form = fb.group({
-        search: []
-      });
-
-      var search = this.form.find('search');
-      let formsservice = new FormsService;
-      search.valueChanges.subscribe(x => {
-        let result = formsservice.replace.spaceWithHyphen(x);
-        console.log(formsservice.toLower(result))
-      });
-      //console.log(new Observable())
-    }
 }
