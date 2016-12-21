@@ -1,7 +1,6 @@
 /node_modules/
-.gitignore
 settings.json
-*.js
-*.js.map
+app/*.js
+app/*.map
 
 
