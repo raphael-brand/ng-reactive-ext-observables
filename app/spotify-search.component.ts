@@ -18,7 +18,7 @@ export class SpotifySearch {
       .debounceTime(400)
       .distinctUntilChanged()
       .flatMap(searchTerm => {
-        var url = "https://api.spotify.com/v1/search?q=" + searchTerm + "&type=artist";
+        var url = `https://api.spotify.com/v1/search?q=${searchTerm}&type=artist`;
         var promise = $.getJSON(url);
         return Observable.fromPromise(promise);
       });

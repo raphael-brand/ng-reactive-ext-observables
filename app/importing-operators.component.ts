@@ -21,10 +21,11 @@ export class ImportingOperators {
     });
 
     var search = this.form.find('search');
-    let formsservice = new FormsService;
+    let fs = new FormsService;
     search.valueChanges.subscribe(x => {
-      let result = formsservice.replace.spaceWithHyphen(x);
-      console.log(formsservice.toLower(result))
+      let result = fs.replace.nonAlphaNumericsWithHyphen(x);
+      result = fs.toLower(result);
+      console.log(fs.encode(result))
     });
     //console.log(new Observable())
   }
